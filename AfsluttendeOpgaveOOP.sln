@@ -7,11 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AfsluttendeOpgaveOOP", "Afs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AfsluttendeOpgaveOOPForm", "AfsluttendeOpgaveOOPForm\AfsluttendeOpgaveOOPForm.csproj", "{3C97BDF1-C4BF-46D5-9335-C1990A9FE885}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DL", "DL\DL.csproj", "{B8583C2C-F6F5-42F6-9F8D-00F6CAB9F5AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DL", "DL\DL.csproj", "{B8583C2C-F6F5-42F6-9F8D-00F6CAB9F5AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{0541DE1E-0142-4A58-96E0-04AF4776F560}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{0541DE1E-0142-4A58-96E0-04AF4776F560}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{A1745C06-5A70-46BF-958E-2DAC155217B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{A1745C06-5A70-46BF-958E-2DAC155217B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validator", "Validator\Validator.csproj", "{0E4BA5FC-B257-46C9-BB19-C1240A916664}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A1745C06-5A70-46BF-958E-2DAC155217B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1745C06-5A70-46BF-958E-2DAC155217B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1745C06-5A70-46BF-958E-2DAC155217B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E4BA5FC-B257-46C9-BB19-C1240A916664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E4BA5FC-B257-46C9-BB19-C1240A916664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E4BA5FC-B257-46C9-BB19-C1240A916664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E4BA5FC-B257-46C9-BB19-C1240A916664}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
