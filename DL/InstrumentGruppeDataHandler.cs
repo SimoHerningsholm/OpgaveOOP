@@ -27,7 +27,7 @@ namespace DL
             //Sætter returvariabel der fortæller om metode er eksekveret uden problemer, til som udgangspunkt at være true
             bool executeSuccess;
             string query = "INSERT INTO InstrumentGrupper(Navn, Beskrivelse) VALUES (@Navn, @Beskrivelse);";
-            //Instanciere et SqlCommand objekt som anvender query samt connection variabel
+            //Instanciere et SqlCommand objekt som anvender query samt connection variabelgfdsgfsd
             SqlCommand cmd = new SqlCommand(query, conn);
             //værdier associeres med parametre for den ovenstående query  
             cmd.Parameters.AddWithValue("@Navn", gruppe.Navn);
