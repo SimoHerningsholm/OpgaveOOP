@@ -16,5 +16,20 @@ namespace AfsluttendeOpgaveOOPForm
         {
             InitializeComponent();
         }
+
+        private void OpretBassBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OpdaterBassBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SletBassBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

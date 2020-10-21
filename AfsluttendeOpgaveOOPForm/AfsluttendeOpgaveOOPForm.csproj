@@ -84,6 +84,18 @@
     <Compile Include="TrommeForm.Designer.cs">
       <DependentUpon>TrommeForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BassForm.resx">
+      <DependentUpon>BassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuitarForm.resx">
+      <DependentUpon>GuitarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstrumentGrupper.resx">
+      <DependentUpon>InstrumentGrupper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KlaviaturForm.resx">
+      <DependentUpon>KlaviaturForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -93,6 +105,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TilbehørForm.resx">
+      <DependentUpon>TilbehørForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrommeForm.resx">
+      <DependentUpon>TrommeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

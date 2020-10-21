@@ -16,5 +16,25 @@ namespace AfsluttendeOpgaveOOPForm
         {
             InitializeComponent();
         }
+
+        private void OpretGuitarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OpdaterGuitarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SletGuitarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TilbageBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

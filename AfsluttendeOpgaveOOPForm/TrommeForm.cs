@@ -16,5 +16,25 @@ namespace AfsluttendeOpgaveOOPForm
         {
             InitializeComponent();
         }
+
+        private void TrommeOpretBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TrommeOpdaterBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TrommeSletBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TilbageBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

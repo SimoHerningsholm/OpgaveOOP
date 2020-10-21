@@ -16,5 +16,25 @@ namespace AfsluttendeOpgaveOOPForm
         {
             InitializeComponent();
         }
+
+        private void KlaviaturOpretBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KlaviaturOpdaterBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KlaviaturSletBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TilbageBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

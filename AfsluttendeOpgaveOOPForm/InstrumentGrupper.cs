@@ -16,5 +16,15 @@ namespace AfsluttendeOpgaveOOPForm
         {
             InitializeComponent();
         }
+
+        private void OpretInstrumentGrpBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InstrumentGrpGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

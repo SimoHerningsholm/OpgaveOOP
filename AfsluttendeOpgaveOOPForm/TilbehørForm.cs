@@ -16,5 +16,21 @@ namespace AfsluttendeOpgaveOOPForm
         {
             InitializeComponent();
         }
+        private void TilbehørOpretBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void TilbehørOpdaterBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void SletTilbehørBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void TilbageBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
