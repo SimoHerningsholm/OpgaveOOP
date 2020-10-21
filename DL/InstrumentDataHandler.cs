@@ -27,18 +27,19 @@ namespace DL
         {
             //Sætter returvariabel der fortæller om metode er eksekveret uden problemer, til som udgangspunkt at være true
             bool executeSuccess;
-            string query = "INSERT INTO Instrumenter(Navn, Beskrivelse, IndkøbsPris, Fortjeneste, LagerDato, Anatal, Producent, VareGruppe) VALUES (@Navn, @Beskrivelse, @IndkøbsPris, @Fortjeneste, @LagerDato, @Antal, @Producent, @VareGruppe);";
+            //Skriver insert query;
+            string query = "INSERT INTO Instrumenter(Navn, Beskrivelse, IndkøbsPris, Fortjeneste, LagerDato, Antal, Producent, VareGruppe) VALUES (@Navn, @Beskrivelse, @IndkøbsPris, @Fortjeneste, @LagerDato, @Antal, @Producent, @VareGruppe);";
             //Instanciere et SqlCommand objekt som anvender query samt connection variabel
             SqlCommand cmd = new SqlCommand(query, conn);
             //værdier associeres med parametre for den ovenstående query
             cmd.Parameters.AddWithValue("@Navn", instrument.Navn);
             cmd.Parameters.AddWithValue("@Beskrivelse", instrument.Beskrivelse);
-            cmd.Parameters.AddWithValue("@IndkøbsPris", instrument.Beskrivelse);
-            cmd.Parameters.AddWithValue("@Fortjeneste", instrument.Beskrivelse);
-            cmd.Parameters.AddWithValue("@LagerDato", instrument.Beskrivelse);
-            cmd.Parameters.AddWithValue("@Antal", instrument.Beskrivelse);
-            cmd.Parameters.AddWithValue("@Producent", instrument.Beskrivelse);
-            cmd.Parameters.AddWithValue("@VareGruppe", instrument.Beskrivelse);
+            cmd.Parameters.AddWithValue("@IndkøbsPris", instrument.IndkøbsPris);
+            cmd.Parameters.AddWithValue("@Fortjeneste", instrument.Fortjeneste);
+            cmd.Parameters.AddWithValue("@LagerDato", instrument.LagerDato);
+            cmd.Parameters.AddWithValue("@Antal", instrument.Antal);
+            cmd.Parameters.AddWithValue("@Producent", instrument.Producent);
+            cmd.Parameters.AddWithValue("@VareGruppe", instrument.VareGruppe);
             try
             {
                 //åbner forbindelse til databasen
@@ -63,9 +64,9 @@ namespace DL
             //returnere hvorvidt metoden er kørt successfuldt eller ej
             return executeSuccess;
         }
-        public async Task<List<InstrumentGruppe>> HentAlleInstrumentGrupperAsync()
+        public async Task<List<Instrument>> HentAlleInstrumenterAsync()
         {
-            //Instanciere en sqlcommand som tager en query der vælger alt fra instrumentgruppe tabellen, og som anvender den conn der er instancieret i constructoren
+            //Instanciere en sqlcommand som tager en query der vælger alt fra instrumenter tabellen, og som anvender den conn der er instancieret i constructoren
             SqlCommand cmd = new SqlCommand("SELECT * FROM InstrumentGrupper;", conn);
             //Sætter en sqldatareader variabel der modtager en sqldatareader med executereaderasync metoden på sqlcommand objektet.
             SqlDataReader reader = await cmd.ExecuteReaderAsync();
@@ -77,12 +78,18 @@ namespace DL
                 //Kalder readasync metoden på sqldatareaderen som returner true så længde den læser, som betingelse for fortsat iterering i en whileløkke.
                 while (await reader.ReadAsync())
                 {
-                    //For hver iteration tilføjes et instrumentgruppeobjekt til instrumentgrupperlisten med properties for den række readeren er nået til. Der castes til de rigtige datatyper.
-                    instrumentGrupper.Add(new InstrumentGruppe
+                    //For hver iteration tilføjes et instrumentobjekt til instrumentlisten med properties for den række readeren er nået til. Der castes til de rigtige datatyper.
+                    instrumenter.Add(new Instrument
                     {
-                        Id = (int)reader["Id"],
+                        VareNummer = (int)reader["Id"],
                         Navn = (string)reader["Navn"],
                         Beskrivelse = (string)reader["Beskrivelse"],
+                        IndkøbsPris = (double)reader["IndkøbsPris"],
+                        Fortjeneste = (double)reader["Fortjeneste"],
+                        LagerDato = (DateTime)reader["LagerDato"],
+                        Antal = (int)reader["Antal"],
+                        Producent = (int)reader["Producent"],
+                        VareGruppe = (int)reader["VareGruppe"],
                     });
                 }
                 //lukker for forbindelsen
@@ -91,17 +98,18 @@ namespace DL
             catch
             {
                 //Såfremt der er opstået en fejl i ovenstående kode, sættes listen til null
-                instrumentGrupper = null;
+                instrumenter = null;
             }
             //returnere resultatet af listen
-            return instrumentGrupper;
+            return instrumenter;
         }
-        public async Task<InstrumentGruppe> HentInstrumentGruppeAsync(int id)
+        public async Task<Instrument> HentInstrumentAsync(int id)
         {
-            //Instanciere en ny instrumentgruppe hvis properties skal sættes til at være lig data hentet fra database
-            InstrumentGruppe grp = new InstrumentGruppe();
-            //Instanciere en sqlcommand som tager en query der vælger alle data fra InstrumenterGruppe på basis af det modtagne Id. Derudover anvender den den conn sqlconnection variablen som connection 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM InstrumentGrupper WHERE Id = @Id;", conn);
+            //Instanciere et ny instrument hvis properties skal sættes til at være lig data hentet fra database
+            Instrument inst = new Instrument();
+            //Instanciere en sqlcommand som tager en query der vælger alle data fra Instrumenter på basis af det modtagne Id. Derudover anvender den den conn sqlconnection variablen som connection 
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Instrumenter WHERE Id = @Id;", conn);
+            cmd.Parameters.AddWithValue("@Id", id);
             //I tilfælde af der opstår fejl under oprettelse af forbindelse til database sættes kode associeret med forbindelsen i en trycatch
             try
             {
@@ -114,13 +122,19 @@ namespace DL
                 if (await reader.ReadAsync())
                 {
                     //Sætter properties ud fra den række der er læst
-                    grp.Id = (int)reader["Id"];
-                    grp.Navn = (string)reader["Navn"];
-                    grp.Navn = (string)reader["Beskrivelse"];
+                    inst.VareNummer = (int)reader["Id"];
+                    inst.Navn = (string)reader["Navn"];
+                    inst.Beskrivelse = (string)reader["Beskrivelse"];
+                    inst.IndkøbsPris = (double)reader["IndkøbsPris"];
+                    inst.Fortjeneste = (double)reader["Fortjeneste"];
+                    inst.LagerDato = (DateTime)reader["LagerDato"];
+                    inst.Antal = (int)reader["Antal"];
+                    inst.Producent = (int)reader["Producent"];
+                    inst.VareGruppe = (int)reader["VareGruppe"];
                 }
                 else
                 {
-                    grp = null;
+                    inst = null;
                 }
                 //lukker læsning og connection
                 reader.Close();
@@ -129,10 +143,87 @@ namespace DL
             catch
             {
                 //hvis der er opstået en fejl under ovenstående eksekvering sættes objektet til at være null
-                grp = null;
+                inst = null;
             }
             //returnere objektet
-            return grp;
+            return inst;
+        }
+        public async Task<bool> OpdaterInstrumentAsync(Instrument instrument)
+        {
+            //Sætter returvariabel der fortæller om metode er eksekveret uden problemer, til som udgangspunkt at være true
+            bool executeSuccess;
+            //Skriver update query
+            string query = "UPDATE Instrumenter SET (Navn = @Navn, Beskrivelse=@Beskrivelse, IndkøbsPris=@IndkøbsPris, Fortjeneste=@Fortjeneste, LagerDato=@LagerDato, Antal=@Antal, Producent=@Producent, VareGruppe=@VareGruppe) WHERE VareNummer = @VareNummer;";
+            //Instanciere et SqlCommand objekt som anvender query samt connection variabel
+            SqlCommand cmd = new SqlCommand(query, conn);
+            //værdier associeres med parametre for den ovenstående query
+            cmd.Parameters.AddWithValue("@VareNummer", instrument.VareNummer);
+            cmd.Parameters.AddWithValue("@Navn", instrument.Navn);
+            cmd.Parameters.AddWithValue("@Beskrivelse", instrument.Beskrivelse);
+            cmd.Parameters.AddWithValue("@IndkøbsPris", instrument.IndkøbsPris);
+            cmd.Parameters.AddWithValue("@Fortjeneste", instrument.Fortjeneste);
+            cmd.Parameters.AddWithValue("@LagerDato", instrument.LagerDato);
+            cmd.Parameters.AddWithValue("@Antal", instrument.Antal);
+            cmd.Parameters.AddWithValue("@Producent", instrument.Producent);
+            cmd.Parameters.AddWithValue("@VareGruppe", instrument.VareGruppe);
+            try
+            {
+                //åbner forbindelse til databasen
+                await conn.OpenAsync();
+                //Eksekvere SQL op imod databasen
+                if (await cmd.ExecuteNonQueryAsync() == 1)
+                {
+                    executeSuccess = true;
+                }
+                else
+                {
+                    executeSuccess = false;
+                }
+                //Lukker forbindelsne
+                conn.Close();
+            }
+            catch
+            {
+                //Er der opstået en fejl er executeSuccess false
+                executeSuccess = false;
+            }
+            //returnere hvorvidt metoden er kørt successfuldt eller ej
+            return executeSuccess;
+        }
+        public async Task<bool> SletInstrumentAsync(int vareNummer)
+        {
+            //Sætter returvariabel der fortæller om metode er eksekveret uden problemer, til som udgangspunkt at være true
+            bool executeSuccess;
+            //skriver delete query
+            string query = "DELETE FROM Instrumenter WHERE VareNummer=@VareNummer;";
+            //Instanciere et SqlCommand objekt som anvender query samt connection variabel
+            SqlCommand cmd = new SqlCommand(query, conn);
+            //værdier associeres med parametre for den ovenstående query
+            cmd.Parameters.AddWithValue("@VareNummer", vareNummer);
+
+            try
+            {
+                //åbner forbindelse til databasen
+                await conn.OpenAsync();
+                //Eksekvere SQL op imod databasen
+                if (await cmd.ExecuteNonQueryAsync() == 1)
+                {
+                    executeSuccess = true;
+                }
+                else
+                {
+                    executeSuccess = false;
+                }
+                //Lukker forbindelsne
+                conn.Close();
+            }
+            catch
+            {
+                //Er der opstået en fejl er executeSuccess false
+                executeSuccess = false;
+            }
+            //returnere hvorvidt metoden er kørt successfuldt eller ej
+            return executeSuccess;
         }
     }
 }

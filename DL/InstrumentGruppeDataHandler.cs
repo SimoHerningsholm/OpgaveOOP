@@ -95,6 +95,7 @@ namespace DL
             InstrumentGruppe grp = new InstrumentGruppe();
             //Instanciere en sqlcommand som tager en query der vælger alle data fra InstrumenterGruppe på basis af det modtagne Id. Derudover anvender den den conn sqlconnection variablen som connection 
             SqlCommand cmd = new SqlCommand("SELECT * FROM InstrumentGrupper WHERE Id = @Id;", conn);
+            cmd.Parameters.AddWithValue("@Id", id);
             //I tilfælde af der opstår fejl under oprettelse af forbindelse til database sættes kode associeret med forbindelsen i en trycatch
             try
             {
