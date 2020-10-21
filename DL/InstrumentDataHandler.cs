@@ -10,7 +10,7 @@ using Models;
 
 namespace DL
 {
-    class InstrumentDataHandler
+    public class InstrumentDataHandler
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["Data Source=D0208;Initial Catalog=MusikButikDB;User ID=Sa;Password=Test142536"].ConnectionString;
         private SqlConnection conn;
