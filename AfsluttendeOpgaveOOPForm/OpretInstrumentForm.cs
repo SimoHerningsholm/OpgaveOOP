@@ -35,7 +35,7 @@ namespace AfsluttendeOpgaveOOPForm
             //Sætter properties som er string og derfor kun skal valideres på indhold i repository
             opretInstrument.Navn = InstrumentNavnTxt.Text;
             opretInstrument.Beskrivelse = InstrumentBeskrivelseTxt.Text;
-            opretInstrument.Producent = ProducentCombo.SelectedText;
+            opretInstrument.Producent = ""; //ProducentCombo.SelectedItem.ToString();
             opretInstrument.VareGruppe = vareGruppe;
             //Der valideres på om der er problemer med at konvertere de modtagne input til de nødvendige datatyper.. Dette kan eventuelt laves smartere og eksternt
             //Er der et problem med konvertering lagres en fejlmeddelelse og opdaterfejl sættes til true.
@@ -85,7 +85,7 @@ namespace AfsluttendeOpgaveOOPForm
                 }
                 else
                 {
-                    StatusLabel.Text = "Kunne ikke opdatere varen";
+                    StatusLabel.Text = "Kunne ikke oprette varen";
                 }
             }
             else

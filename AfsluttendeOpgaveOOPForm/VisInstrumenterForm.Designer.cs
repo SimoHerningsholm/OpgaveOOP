@@ -102,9 +102,8 @@
             this.StatusLabel.AutoSize = true;
             this.StatusLabel.Location = new System.Drawing.Point(24, 233);
             this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(35, 13);
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
             this.StatusLabel.TabIndex = 14;
-            this.StatusLabel.Text = "label1";
             // 
             // ReloadBtn
             // 
