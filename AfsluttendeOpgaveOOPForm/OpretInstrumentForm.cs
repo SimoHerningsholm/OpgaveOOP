@@ -32,45 +32,34 @@ namespace AfsluttendeOpgaveOOPForm
             bool opretFejl = false;
             string fejlMeddelelse = string.Empty;
             Instrument opretInstrument = new Instrument();
+            KonverterValidator k = new KonverterValidator();
             //Sætter properties som er string og derfor kun skal valideres på indhold i repository
             opretInstrument.Navn = InstrumentNavnTxt.Text;
             opretInstrument.Beskrivelse = InstrumentBeskrivelseTxt.Text;
-            opretInstrument.Producent = ""; //ProducentCombo.SelectedItem.ToString();
+            opretInstrument.Producent = ProducentCombo.SelectedItem.ToString(); //ProducentCombo.SelectedItem.ToString();
             opretInstrument.VareGruppe = vareGruppe;
             //Der valideres på om der er problemer med at konvertere de modtagne input til de nødvendige datatyper.. Dette kan eventuelt laves smartere og eksternt
             //Er der et problem med konvertering lagres en fejlmeddelelse og opdaterfejl sættes til true.
-            try
-            {
-                opretInstrument.IndkøbsPris = Convert.ToDouble(InstrumentIndkøbsPrisTxt.Text);
-            }
-            catch
+            opretInstrument.IndkøbsPris = k.DoubleConverter(InstrumentIndkøbsPrisTxt.Text);
+            if(opretInstrument.IndkøbsPris == 0)
             {
                 opretFejl = true;
                 fejlMeddelelse += "Indkøbspris var ikke et tal";
             }
-            try
-            {
-                opretInstrument.Fortjeneste = Convert.ToDouble(InstrumentFortjenesteTxt.Text);
-            }
-            catch
+            opretInstrument.Fortjeneste = k.DoubleConverter(InstrumentFortjenesteTxt.Text);
+            if(opretInstrument.Fortjeneste == 0)
             {
                 opretFejl = true;
-                fejlMeddelelse += "Fortjeneste var ikke et tal";
+                fejlMeddelelse += "Indkøbspris var ikke et tal";
             }
-            try
-            {
-                opretInstrument.LagerDato = Convert.ToDateTime(InstrumentLagerDatoTxt.Text);
-            }
-            catch
+            opretInstrument.LagerDato = k.DateTimeConverter(InstrumentLagerDatoTxt.Text);
+            if(opretInstrument.LagerDato == new DateTime(1,1,1))
             {
                 opretFejl = true;
                 fejlMeddelelse += "Lagerdato var ikke en dato";
             }
-            try
-            {
-                opretInstrument.Antal = int.Parse(InstrumentAntalTxt.Text);
-            }
-            catch
+            opretInstrument.Antal = k.IntConverter(InstrumentAntalTxt.Text);
+            if(opretInstrument.Antal == 0)
             {
                 opretFejl = true;
                 fejlMeddelelse += "Antal var ikke et tal";

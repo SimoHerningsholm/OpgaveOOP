@@ -39,6 +39,7 @@ namespace AfsluttendeOpgaveOOPForm
         {
             bool opdaterFejl = false;
             string fejlMeddelelse = string.Empty;
+            KonverterValidator k = new KonverterValidator();
             InstrumentRepository instRep = new InstrumentRepository();
             Instrument opdateretInstrument = new Instrument();
             //Sætter properties som er string og derfor kun skal valideres på indhold i repository
@@ -49,43 +50,31 @@ namespace AfsluttendeOpgaveOOPForm
             opdateretInstrument.VareGruppe = gruppeId;
             //Der valideres på om der er problemer med at konvertere de modtagne input til de nødvendige datatyper.. Dette kan eventuelt laves smartere og eksternt
             //Er der et problem med konvertering lagres en fejlmeddelelse og opdaterfejl sættes til true.
-            try
-            {
-                opdateretInstrument.IndkøbsPris = Convert.ToDouble(InstrumentIndkøbsPrisTxt.Text);
-            }
-            catch
+            opdateretInstrument.IndkøbsPris = k.DoubleConverter(InstrumentIndkøbsPrisTxt.Text);
+            if (opdateretInstrument.IndkøbsPris == 0)
             {
                 opdaterFejl = true;
-                fejlMeddelelse = "Indkøbspris var ikke et tal ";
+                fejlMeddelelse += "Indkøbspris var ikke et tal";
             }
-            try
-            {
-                opdateretInstrument.Fortjeneste = Convert.ToDouble(InstrumentFortjenesteTxt.Text);
-            }
-            catch
+            opdateretInstrument.Fortjeneste = k.DoubleConverter(InstrumentFortjenesteTxt.Text);
+            if (opdateretInstrument.Fortjeneste == 0)
             {
                 opdaterFejl = true;
-                fejlMeddelelse += "Fortjeneste var ikke et tal ";
+                fejlMeddelelse += "Indkøbspris var ikke et tal";
             }
-            try
-            {
-                opdateretInstrument.LagerDato = Convert.ToDateTime(Convert.ToDateTime(InstrumentLagerDato.Text));
-            }
-            catch
+            opdateretInstrument.LagerDato = k.DateTimeConverter(InstrumentLagerDato.Text);
+            if (opdateretInstrument.LagerDato == new DateTime(1, 1, 1))
             {
                 opdaterFejl = true;
-                fejlMeddelelse += "Lagerdato vare ikke en dato ";
+                fejlMeddelelse += "Lagerdato var ikke en dato";
             }
-            try
-            {
-                opdateretInstrument.Antal = int.Parse(InstrumentAntalTxt.Text);
-            }
-            catch
+            opdateretInstrument.Antal = k.IntConverter(InstrumentAntalTxt.Text);
+            if (opdateretInstrument.Antal == 0)
             {
                 opdaterFejl = true;
-                fejlMeddelelse += "Antal var ikke et tal ";
+                fejlMeddelelse += "Antal var ikke et tal";
             }
-            if(opdaterFejl == false)
+            if (opdaterFejl == false)
             {
                 if(await instRep.OpdaterInstrumentAsync(opdateretInstrument))
                 {
