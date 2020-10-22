@@ -16,11 +16,6 @@ namespace Validator
             List<char> symbols = new List<char>() { '(', ')', '.', '/', ',' };
             return str.Any(strChar => symbols.Any(symbolChar => symbolChar == strChar));
         }
-        public bool CheckNotLetterOrDigit(string str)
-        {
-            //Hvis der er en char i strengen der ikke er et bogstav eller tal er der inputtet noget forkert
-            return str.Any(ch => !char.IsLetterOrDigit(ch));
-        }
         public bool checkInstrumentGruppeObject(InstrumentGruppe grp)
         {
             //Tjekker først om navn er null eller tom
@@ -66,8 +61,8 @@ namespace Validator
             {
                 return false;
             }
-            //tjekker om beskrivelse er null eller tom
-            if (!string.IsNullOrEmpty(inst.Beskrivelse))
+            
+            if (!string.IsNullOrEmpty(inst.Beskrivelse))//tjekker om beskrivelse er null eller tom
             {
                 //tkekker om navn er et andet tegn end bogstav eller tal
                 if (CheckSpecificSymbols(inst.Beskrivelse))

@@ -45,7 +45,7 @@ namespace AfsluttendeOpgaveOOPForm
             opdateretInstrument.VareNummer = instrument.VareNummer;
             opdateretInstrument.Navn = InstrumentNavnTxt.Text;
             opdateretInstrument.Beskrivelse = InstrumentBeskrivelseTxt.Text;
-            opdateretInstrument.Producent = ProducentCombo.SelectedText;
+            opdateretInstrument.Producent = ProducentCombo.SelectedItem.ToString();
             opdateretInstrument.VareGruppe = gruppeId;
             //Der valideres på om der er problemer med at konvertere de modtagne input til de nødvendige datatyper.. Dette kan eventuelt laves smartere og eksternt
             //Er der et problem med konvertering lagres en fejlmeddelelse og opdaterfejl sættes til true.
