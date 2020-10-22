@@ -34,7 +34,28 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.7.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.7.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,57 +65,46 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BassForm.cs">
+    <Compile Include="VisInstrumentGrupper.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BassForm.Designer.cs">
-      <DependentUpon>BassForm.cs</DependentUpon>
+    <Compile Include="VisInstrumentGrupper.Designer.cs">
+      <DependentUpon>VisInstrumentGrupper.cs</DependentUpon>
     </Compile>
-    <Compile Include="GuitarForm.cs">
+    <Compile Include="OpdaterInstrumentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GuitarForm.Designer.cs">
-      <DependentUpon>GuitarForm.cs</DependentUpon>
+    <Compile Include="OpdaterInstrumentForm.Designer.cs">
+      <DependentUpon>OpdaterInstrumentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InstrumentGrupper.cs">
+    <Compile Include="OpretInstrumentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InstrumentGrupper.Designer.cs">
-      <DependentUpon>InstrumentGrupper.cs</DependentUpon>
-    </Compile>
-    <Compile Include="KlaviaturForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="KlaviaturForm.Designer.cs">
-      <DependentUpon>KlaviaturForm.cs</DependentUpon>
+    <Compile Include="OpretInstrumentForm.Designer.cs">
+      <DependentUpon>OpretInstrumentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TilbehørForm.cs">
+    <Compile Include="VisInstrumenterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TilbehørForm.Designer.cs">
-      <DependentUpon>TilbehørForm.cs</DependentUpon>
+    <Compile Include="VisInstrumenterForm.Designer.cs">
+      <DependentUpon>VisInstrumenterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrommeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TrommeForm.Designer.cs">
-      <DependentUpon>TrommeForm.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="BassForm.resx">
-      <DependentUpon>BassForm.cs</DependentUpon>
+    <EmbeddedResource Include="OpdaterInstrumentForm.resx">
+      <DependentUpon>OpdaterInstrumentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GuitarForm.resx">
-      <DependentUpon>GuitarForm.cs</DependentUpon>
+    <EmbeddedResource Include="OpretInstrumentForm.resx">
+      <DependentUpon>OpretInstrumentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InstrumentGrupper.resx">
-      <DependentUpon>InstrumentGrupper.cs</DependentUpon>
+    <EmbeddedResource Include="VisInstrumenterForm.resx">
+      <DependentUpon>VisInstrumenterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KlaviaturForm.resx">
-      <DependentUpon>KlaviaturForm.cs</DependentUpon>
+    <EmbeddedResource Include="VisInstrumentGrupper.resx">
+      <DependentUpon>VisInstrumentGrupper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -105,12 +115,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TilbehørForm.resx">
-      <DependentUpon>TilbehørForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TrommeForm.resx">
-      <DependentUpon>TrommeForm.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,6 +128,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{0541de1e-0142-4a58-96e0-04af4776f560}</Project>
+      <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{a1745c06-5a70-46bf-958e-2dac155217b3}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validator\Validator.csproj">
+      <Project>{0e4ba5fc-b257-46c9-bb19-c1240a916664}</Project>
+      <Name>Validator</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

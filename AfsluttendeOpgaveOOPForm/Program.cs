@@ -16,7 +16,7 @@ namespace AfsluttendeOpgaveOOPForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InstrumentGrupper());
+            Application.Run(new VisInstrumentGrupper());
         }
     }
 }

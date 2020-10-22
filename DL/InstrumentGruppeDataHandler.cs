@@ -11,11 +11,12 @@ namespace DL
 {
     public class InstrumentGruppeDataHandler
     {
-        private string connectionString = ConfigurationManager.ConnectionStrings["Data Source=D0208;Initial Catalog=MusikButikDB;User ID=Sa;Password=Test142536"].ConnectionString;
+        private string connectionString; 
         private SqlConnection conn;
         private List<InstrumentGruppe> instrumentGrupper;
         public InstrumentGruppeDataHandler()
         {
+            connectionString = "Data Source=D0208;Initial Catalog=MusikButikDB;User ID=Sa;Password=Test142536";
             //instanciere sqlconnection og passer den ovenstående connectionstring som argument
             conn = new SqlConnection(connectionString);
             //instanciere listen over instrument grupper
@@ -60,13 +61,14 @@ namespace DL
         {
             //Instanciere en sqlcommand som tager en query der vælger alt fra instrumentgruppe tabellen, og som anvender den conn der er instancieret i constructoren
             SqlCommand cmd = new SqlCommand("SELECT * FROM InstrumentGrupper;", conn);
-            //Sætter en sqldatareader variabel der modtager en sqldatareader med executereaderasync metoden på sqlcommand objektet.
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
+            
             //I tilfælde af der opstår fejl under oprettelse af forbindelse til database sættes kode associeret med forbindelsen i en trycatch
             try
             {
                 //Åbner forbindelse til databasen
                 await conn.OpenAsync();
+                //Sætter en sqldatareader variabel der modtager en sqldatareader med executereaderasync metoden på sqlcommand objektet som skal køre efter forbindelsen er åbnet.
+                SqlDataReader reader = await cmd.ExecuteReaderAsync();
                 //Kalder readasync metoden på sqldatareaderen som returner true så længde den læser, som betingelse for fortsat iterering i en whileløkke.
                 while (await reader.ReadAsync())
                 {

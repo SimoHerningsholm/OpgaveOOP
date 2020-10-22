@@ -11,18 +11,17 @@ namespace BL
     {
         //Deklarere en instrumentdatahandler samt en instrumentvalidator
         InstrumentGruppeDataHandler dataHandler;
-        InstrumentGruppeValidator val;
         public InstrumentGruppeRepository()
         {
             //Instancierer en instrumentdatahandler samt en instrumentvalidator
             dataHandler = new InstrumentGruppeDataHandler();
-            val = new InstrumentGruppeValidator();
         }
         public async Task<bool> OpretInstrumentGruppeAsync(InstrumentGruppe gruppe)
         {
             await Task.Delay(5000);
-            //Tjekker om metoden har modtaget et gyldigt instrument objekt
-            if (await val.checkInstrumentGruppeObject(gruppe))
+            GeneralValidator val = new GeneralValidator();
+            //Tjekker om metoden har modtaget et gyldigt instrumentgruppe objekt
+            if (val.checkInstrumentGruppeObject(gruppe))
             {
                 //kalder OpretInstrumentAsync metoden på datahandler objektet med instrument som argument og returnere hvorvidt oprettelsen har været successfuld
                 return await dataHandler.OpretInstrumentGruppeAsync(gruppe);
@@ -32,7 +31,7 @@ namespace BL
         }
         public async Task<List<InstrumentGruppe>> HentInstrumentGrupperAsync()
         {
-            await Task.Delay(5000);
+         //   await Task.Delay(5000);
             //kalder HentAlleInstrumentGrupperAsync metoden på datahandler objektet
             //har den hentet alle instrumentGrupper successfuldt returnere den liste over instrumentgrupper. Hvis ikke returnere den null.
             return await dataHandler.HentAlleInstrumentGrupperAsync();

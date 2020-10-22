@@ -1,6 +1,6 @@
 ﻿namespace AfsluttendeOpgaveOOPForm
 {
-    partial class InstrumentGrupper
+    partial class VisInstrumentGrupper
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,8 @@
             this.InstrumentGrpBeskrivelseTxt = new System.Windows.Forms.TextBox();
             this.OpretGridUILabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.StatusLabel = new System.Windows.Forms.Label();
+            this.ReloadGridBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.InstrumentGrpGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,9 +62,9 @@
             // 
             this.OpretInstrumentGrpBtn.Location = new System.Drawing.Point(24, 177);
             this.OpretInstrumentGrpBtn.Name = "OpretInstrumentGrpBtn";
-            this.OpretInstrumentGrpBtn.Size = new System.Drawing.Size(75, 23);
+            this.OpretInstrumentGrpBtn.Size = new System.Drawing.Size(136, 23);
             this.OpretInstrumentGrpBtn.TabIndex = 2;
-            this.OpretInstrumentGrpBtn.Text = "Opret";
+            this.OpretInstrumentGrpBtn.Text = "Opret instrumentgruppe";
             this.OpretInstrumentGrpBtn.UseVisualStyleBackColor = true;
             this.OpretInstrumentGrpBtn.Click += new System.EventHandler(this.OpretInstrumentGrpBtn_Click);
             // 
@@ -100,11 +102,31 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Klik på en gruppe for at gå til  gruppens varer ";
             // 
-            // InstrumentGrupper
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.Location = new System.Drawing.Point(21, 225);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.StatusLabel.TabIndex = 7;
+            // 
+            // ReloadGridBtn
+            // 
+            this.ReloadGridBtn.Location = new System.Drawing.Point(24, 220);
+            this.ReloadGridBtn.Name = "ReloadGridBtn";
+            this.ReloadGridBtn.Size = new System.Drawing.Size(136, 23);
+            this.ReloadGridBtn.TabIndex = 8;
+            this.ReloadGridBtn.Text = "Reload grid";
+            this.ReloadGridBtn.UseVisualStyleBackColor = true;
+            this.ReloadGridBtn.Click += new System.EventHandler(this.ReloadGridBtn_Click);
+            // 
+            // VisInstrumentGrupper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ReloadGridBtn);
+            this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.OpretGridUILabel);
             this.Controls.Add(this.InstrumentGrpBeskrivelseTxt);
@@ -112,7 +134,7 @@
             this.Controls.Add(this.OpretInstrumentGrpBtn);
             this.Controls.Add(this.OpretUILabel);
             this.Controls.Add(this.InstrumentGrpGrid);
-            this.Name = "InstrumentGrupper";
+            this.Name = "VisInstrumentGrupper";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.InstrumentGrpGrid)).EndInit();
             this.ResumeLayout(false);
@@ -129,6 +151,8 @@
         private System.Windows.Forms.TextBox InstrumentGrpBeskrivelseTxt;
         private System.Windows.Forms.Label OpretGridUILabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label StatusLabel;
+        private System.Windows.Forms.Button ReloadGridBtn;
     }
 }
 

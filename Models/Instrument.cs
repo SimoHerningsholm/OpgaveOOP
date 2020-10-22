@@ -13,7 +13,7 @@ namespace Models
         public double Fortjeneste { get; set; }
         public DateTime LagerDato { get; set; }
         public int Antal { get; set; }
-        public int Producent { get; set; }
+        public string Producent { get; set; }
         public int VareGruppe { get; set; }
         public double UdsalgsPris {get{ return (double)IndkøbsPris * (Fortjeneste + 1);}}
     }
