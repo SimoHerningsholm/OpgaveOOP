@@ -33,16 +33,19 @@ namespace Validator
         }
         public bool checkInstrumentGruppeObject(InstrumentGruppe grp)
         {
-
+            //Tjekker først om navn er null eller tom
             if (CheckStringInput(grp.Navn))
             {
+                //Tjekker dernæst om der er et tegn der ikke er et bogstav eller et tal
                 if (CheckNotLetterOrDigit(grp.Navn))
                 {
                     return false;
                 }
             }
+            //tjekker om beskrivelse er null eller tom
             if (CheckStringInput(grp.Beskrivelse))
             {
+                //tjekker om der er tegn der ikke er bogstav eller tal
                 if (CheckNotLetterOrDigit(grp.Beskrivelse))
                 {
                     return false;
@@ -52,38 +55,48 @@ namespace Validator
         }
         public bool checkInstrumentObject(Instrument inst)
         {
+            //tjekker om navn er null eller tom
             if(CheckStringInput(inst.Navn))
             {
+                //tkekker om navn er et andet tegn end bogstav eller tal
                 if(CheckNotLetterOrDigit(inst.Navn))
                 {
                     return false;
                 }
             }
+            //tjekker om beskrivelse er null eller tom
             if(CheckStringInput(inst.Beskrivelse))
             {
+                //tjekker om der er tegn der ikke er bogstav eller tal
                 if(CheckNotLetterOrDigit(inst.Beskrivelse))
                 {
                     return false;
                 }
             }
-            if(inst.IndkøbsPris < 1)
+            //indkøbsprisen må ikke være mindre end eller lig 0
+            if(inst.IndkøbsPris <= 0)
             {
                 return false;
             }
+            //fortjeneste må ikke være mindre end eller lig 0%
             if(inst.Fortjeneste <= 0)
             {
                 return false;
             }
+            //Datoen en vare er kommet på lager kan ikke være i fremtiden. Medmindre vi betragter feltet som en vare der kommer på lager i fremtiden
             if(CheckLagerDato(inst.LagerDato))
             {
                 return false;
             }
+            //man kan ikke have under et antal på en vare
             if(inst.Antal < 1)
             {
                 return false;
             }
+            //Tjekker at producent strengen ikke er null eller tom
             if(CheckStringInput(inst.Producent))
             {
+                //tjekker der ikke er tegn der ikke skal være der
                 if (CheckNotLetterOrDigit(inst.Navn))
                 {
                     return false;
