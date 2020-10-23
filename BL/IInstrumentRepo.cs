@@ -10,8 +10,8 @@ namespace BL
     public interface IInstrumentRepo
     {
         Task<bool> OpretInstrumentAsync(Instrument instrument);
-        Task<List<Instrument>> HentInstrumenterAsync(int VareNummer);
-        Task<Instrument> HentInstrumentAsync(int id);
+        Task<List<Instrument>> HentInstrumenterAsync(int VareGruppe);
+        Task<Instrument> HentInstrumentAsync(int vareNummer);
         Task<bool> OpdaterInstrumentAsync(Instrument instrument);
         Task<bool> SletInstrumentAsync(int id);
     }

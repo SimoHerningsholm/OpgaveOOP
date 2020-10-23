@@ -37,12 +37,12 @@ namespace BL
                 return false;
             }
         }
-        public async Task<List<Instrument>> HentInstrumenterAsync(int VareGruppe)
+        public async Task<List<Instrument>> HentInstrumenterAsync(int instrumentGruppe)
         {
           //  await Task.Delay(5000);
             //kalder HentAlleInstrumentAsync metoden på datahandler objektet
             //har den hentet alle instrumenter successfuldt returnere den liste over instrumenter. Hvis ikke returnere den null.
-            return await dataHandler.HentInstrumenterAsync(VareGruppe);
+            return await dataHandler.HentInstrumenterAsync(instrumentGruppe);
         }
         public async Task<Instrument> HentInstrumentAsync(int vareNummer)
         {

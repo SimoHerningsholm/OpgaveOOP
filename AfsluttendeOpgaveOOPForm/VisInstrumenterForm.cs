@@ -28,7 +28,7 @@ namespace AfsluttendeOpgaveOOPForm
             InitializeComponent();
             prevForm = inPrevForm;
             gruppeId = inGruppeId;
-            loadInstrumentGrid();
+            LoadInstrumentGrid();
             GruppeIdLabel.Text = gruppeId.ToString();
            
         }
@@ -44,7 +44,7 @@ namespace AfsluttendeOpgaveOOPForm
             this.Hide();
             prevForm.Show();
         }
-        public async void loadInstrumentGrid()
+        public async void LoadInstrumentGrid()
         {
             //Instanciere repository med henblik på at læse instrumentgrupper ind i datagridview
             InstrumentRepository rep = new InstrumentRepository();
@@ -97,7 +97,7 @@ namespace AfsluttendeOpgaveOOPForm
             if(successfuldSlet)
             {
                 StatusLabel.Text = "Du har successfuldt slettet vare";
-                loadInstrumentGrid();
+                LoadInstrumentGrid();
             }
             else
             {
@@ -107,7 +107,7 @@ namespace AfsluttendeOpgaveOOPForm
 
         private void ReloadBtn_Click(object sender, EventArgs e)
         {
-            loadInstrumentGrid();
+            LoadInstrumentGrid();
         }
     }
 }

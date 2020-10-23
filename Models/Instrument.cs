@@ -15,6 +15,6 @@ namespace Models
         public int Antal { get; set; }
         public string Producent { get; set; }
         public int VareGruppe { get; set; }
-        public double UdsalgsPris {get{ return (double)IndkøbsPris * (Fortjeneste + 1);}}
+        public double UdsalgsPris {get{return (double)IndkøbsPris * (Fortjeneste + 1);}}
     }
 }

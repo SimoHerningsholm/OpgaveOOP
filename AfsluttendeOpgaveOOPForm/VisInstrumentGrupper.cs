@@ -15,11 +15,11 @@ namespace AfsluttendeOpgaveOOPForm
 {
     public partial class VisInstrumentGrupper : Form
     {
-        private int ValgtVareGruppeId;
+        private int valgtVareGruppeId;
         public VisInstrumentGrupper()
         {
             InitializeComponent();
-            loadInstrumentGruppeGrid();
+            LoadInstrumentGruppeGrid();
         }
         private async void OpretInstrumentGrpBtn_Click(object sender, EventArgs e)
         {
@@ -34,7 +34,7 @@ namespace AfsluttendeOpgaveOOPForm
             //er oprettelse foretaget successfuldt skal formen resettes, hvis ikke skal der printes en fejlmeddelelse
             if(successfuldOprettelse)
             {
-                resetForm();
+                ResetForm();
             }
             else
             {
@@ -45,14 +45,14 @@ namespace AfsluttendeOpgaveOOPForm
         private void InstrumentGrpGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //Modtager id på valgt varegruppe
-            ValgtVareGruppeId = (int)InstrumentGrpGrid.Rows[InstrumentGrpGrid.CurrentRow.Index].Cells[0].Value;
+            valgtVareGruppeId = (int)InstrumentGrpGrid.Rows[InstrumentGrpGrid.CurrentRow.Index].Cells[0].Value;
             //instanciere en visinstrumenter form som modtager den nuværende form samt det valgte gruppeid
-            VisInstrumenterForm visInstrumenter = new VisInstrumenterForm(this, ValgtVareGruppeId);
+            VisInstrumenterForm visInstrumenter = new VisInstrumenterForm(this, valgtVareGruppeId);
             //Skjuler denne form og viser instrumentform med instrumenter for den valgte varegruppe
             this.Hide();
             visInstrumenter.Show();
         }
-        public async void loadInstrumentGruppeGrid()
+        private async void LoadInstrumentGruppeGrid()
         {
             //Instanciere repository med henblik på at læse instrumentgrupper ind i datagridview
             InstrumentGruppeRepository rep = new InstrumentGruppeRepository();
@@ -63,28 +63,28 @@ namespace AfsluttendeOpgaveOOPForm
             //Lister instrumentgrupperne ved at sætte listen af instrumentgrupper som datasource på instrumentgrpgrid
             InstrumentGrpGrid.DataSource = instrumentGrupper;
         }
-        public async void loadInstrumentGrid()
+        private async void LoadInstrumentGrid()
         {
             //Instanciere repository med henblik på at læse instrumentgrupper ind i datagridview
             InstrumentRepository rep = new InstrumentRepository();
             //nulstiller datasource
             InstrumentGrpGrid.DataSource = null;
             //loader instrumentgrupper ind med metode fra repository 
-            List<Instrument> instrumenter = await rep.HentInstrumenterAsync(ValgtVareGruppeId);
+            List<Instrument> instrumenter = await rep.HentInstrumenterAsync(valgtVareGruppeId);
             //Lister instrumentgrupperne ved at sætte listen af instrumentgrupper som datasource på instrumentgrpgrid
             InstrumentGrpGrid.DataSource = instrumenter;
         }
-        private void resetForm()
+        private void ResetForm()
         {
             //Resetter tekstbokse med standard værdier og reloader grid
             InstrumentGrpNavnTxt.Text = "Navn";
             InstrumentGrpBeskrivelseTxt.Text = "Beskrivelse";
-            loadInstrumentGruppeGrid();
+            LoadInstrumentGruppeGrid();
         }
 
         private void ReloadGridBtn_Click(object sender, EventArgs e)
         {
-            loadInstrumentGruppeGrid();
+            LoadInstrumentGruppeGrid();
         }
     }
 }

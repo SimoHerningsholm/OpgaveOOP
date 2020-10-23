@@ -16,22 +16,22 @@ namespace AfsluttendeOpgaveOOPForm
     public partial class OpdaterInstrumentForm : Form
     {
         //opdaterformen skal bruge et instrument at opdatere på samt et gruppeid som instrumentet tilhøre for at opdatere instrumentet i den rigtige varegruppe kategori
-        Form prevForm;
+        VisInstrumenterForm prevForm;
         Instrument instrument;
         int gruppeId;
         public OpdaterInstrumentForm()
         {
             InitializeComponent();
         }
-        public OpdaterInstrumentForm(Form inPrevForm, Instrument inInstrument, int inGruppeId)
+        public OpdaterInstrumentForm(VisInstrumenterForm inPrevForm, Instrument inInstrument, int inGruppeId)
         {
             //sætter variabler der skal bruges af formen
             InitializeComponent();
             prevForm = inPrevForm;
             instrument = inInstrument;
             gruppeId = inGruppeId;
-            loadTextBokse();
-            fyldProducentCombo();
+            LoadTextBokse();
+            FyldProducentCombo();
             ProducentCombo.SelectedIndex = 0;
         }
 
@@ -48,7 +48,7 @@ namespace AfsluttendeOpgaveOOPForm
             opdateretInstrument.Beskrivelse = InstrumentBeskrivelseTxt.Text;
             opdateretInstrument.Producent = ProducentCombo.SelectedItem.ToString();
             opdateretInstrument.VareGruppe = gruppeId;
-            //Der valideres på om der er problemer med at konvertere de modtagne input til de nødvendige datatyper.. Dette kan eventuelt laves smartere og eksternt
+            //Der valideres på om der er problemer med at konvertere de modtagne input til de nødvendige datatyper..
             //Er der et problem med konvertering lagres en fejlmeddelelse og opdaterfejl sættes til true.
             opdateretInstrument.IndkøbsPris = k.DoubleConverter(InstrumentIndkøbsPrisTxt.Text);
             if (opdateretInstrument.IndkøbsPris == 0)
@@ -80,6 +80,7 @@ namespace AfsluttendeOpgaveOOPForm
                 {
                     this.Hide();
                     prevForm.Show();
+                    prevForm.LoadInstrumentGrid();
                 }
                 else
                 {
@@ -91,7 +92,7 @@ namespace AfsluttendeOpgaveOOPForm
                  StatusLabel.Text = fejlMeddelelse;
             }
         }
-        public void loadTextBokse()
+        private void LoadTextBokse()
         {
             //Sætter tekstbokse til at have properties på det indkomne instrument objekt
             InstrumentNavnTxt.Text = instrument.Navn;
@@ -108,8 +109,10 @@ namespace AfsluttendeOpgaveOOPForm
             //går man tilbage skjules denne form og den tidligere vises
             this.Hide();
             prevForm.Show();
+            //Den forhenværende form skal loades med de nyeste værdier
+            prevForm.LoadInstrumentGrid();
         }
-        private void fyldProducentCombo()
+        private void FyldProducentCombo()
         {
             //Fylder combobokse med producenter
             ProducentCombo.Items.Add("Yamaha");

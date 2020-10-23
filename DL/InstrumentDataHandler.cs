@@ -17,7 +17,7 @@ namespace DL
         private List<Instrument> instrumenter;
         public InstrumentDataHandler()
         {
-            connectionString = "Data Source=localhost;Initial Catalog=MusikInstrumentDB;Integrated Security=True";
+            connectionString = "Data Source=D0208;Initial Catalog=MusikButikDB;User ID=Sa;Password=Test142536";
             //instanciere sqlconnection og passer den ovenstående connectionstring som argument
             conn = new SqlConnection(connectionString);
             //instanciere listen over instrument grupper

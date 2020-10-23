@@ -15,14 +15,14 @@ namespace AfsluttendeOpgaveOOPForm
 {
     public partial class OpretInstrumentForm : Form
     {
-        private Form prevForm;
+        private VisInstrumenterForm prevForm;
         private int vareGruppe;
-        public OpretInstrumentForm(Form inPrevForm, int inVareGruppe)
+        public OpretInstrumentForm(VisInstrumenterForm inPrevForm, int inVareGruppe)
         {
             InitializeComponent();
             prevForm = inPrevForm;
             vareGruppe = inVareGruppe;
-            fyldProducentCombo();
+            FyldProducentCombo();
             ProducentCombo.SelectedIndex = 0;
         }
 
@@ -71,6 +71,7 @@ namespace AfsluttendeOpgaveOOPForm
                 {
                     this.Hide();
                     prevForm.Show();
+                    prevForm.LoadInstrumentGrid();
                 }
                 else
                 {
@@ -87,8 +88,10 @@ namespace AfsluttendeOpgaveOOPForm
         {
             this.Hide();
             prevForm.Show();
+            prevForm.LoadInstrumentGrid();
+            
         }
-        private void fyldProducentCombo()
+        private void FyldProducentCombo()
         {
             //Fylder comboboks med potentielle producenter
             ProducentCombo.Items.Add("Yamaha");
