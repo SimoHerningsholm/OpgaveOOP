@@ -43,9 +43,9 @@
             // 
             // OpretInstrumentBtn
             // 
-            this.OpretInstrumentBtn.Location = new System.Drawing.Point(331, 370);
+            this.OpretInstrumentBtn.Location = new System.Drawing.Point(321, 370);
             this.OpretInstrumentBtn.Name = "OpretInstrumentBtn";
-            this.OpretInstrumentBtn.Size = new System.Drawing.Size(75, 23);
+            this.OpretInstrumentBtn.Size = new System.Drawing.Size(155, 23);
             this.OpretInstrumentBtn.TabIndex = 0;
             this.OpretInstrumentBtn.Text = "Opret";
             this.OpretInstrumentBtn.UseVisualStyleBackColor = true;
@@ -53,57 +53,57 @@
             // 
             // InstrumentNavnTxt
             // 
-            this.InstrumentNavnTxt.Location = new System.Drawing.Point(331, 52);
+            this.InstrumentNavnTxt.Location = new System.Drawing.Point(321, 52);
             this.InstrumentNavnTxt.Name = "InstrumentNavnTxt";
-            this.InstrumentNavnTxt.Size = new System.Drawing.Size(100, 20);
+            this.InstrumentNavnTxt.Size = new System.Drawing.Size(155, 20);
             this.InstrumentNavnTxt.TabIndex = 1;
             this.InstrumentNavnTxt.Text = "Navn";
             // 
             // InstrumentBeskrivelseTxt
             // 
-            this.InstrumentBeskrivelseTxt.Location = new System.Drawing.Point(331, 97);
+            this.InstrumentBeskrivelseTxt.Location = new System.Drawing.Point(321, 97);
             this.InstrumentBeskrivelseTxt.Name = "InstrumentBeskrivelseTxt";
-            this.InstrumentBeskrivelseTxt.Size = new System.Drawing.Size(100, 20);
+            this.InstrumentBeskrivelseTxt.Size = new System.Drawing.Size(155, 20);
             this.InstrumentBeskrivelseTxt.TabIndex = 2;
             this.InstrumentBeskrivelseTxt.Text = "Beskrivelse";
             // 
             // InstrumentIndkøbsPrisTxt
             // 
-            this.InstrumentIndkøbsPrisTxt.Location = new System.Drawing.Point(331, 142);
+            this.InstrumentIndkøbsPrisTxt.Location = new System.Drawing.Point(321, 142);
             this.InstrumentIndkøbsPrisTxt.Name = "InstrumentIndkøbsPrisTxt";
-            this.InstrumentIndkøbsPrisTxt.Size = new System.Drawing.Size(100, 20);
+            this.InstrumentIndkøbsPrisTxt.Size = new System.Drawing.Size(155, 20);
             this.InstrumentIndkøbsPrisTxt.TabIndex = 3;
             this.InstrumentIndkøbsPrisTxt.Text = "Indkøbspris";
             // 
             // InstrumentFortjenesteTxt
             // 
-            this.InstrumentFortjenesteTxt.Location = new System.Drawing.Point(331, 190);
+            this.InstrumentFortjenesteTxt.Location = new System.Drawing.Point(321, 190);
             this.InstrumentFortjenesteTxt.Name = "InstrumentFortjenesteTxt";
-            this.InstrumentFortjenesteTxt.Size = new System.Drawing.Size(100, 20);
+            this.InstrumentFortjenesteTxt.Size = new System.Drawing.Size(155, 20);
             this.InstrumentFortjenesteTxt.TabIndex = 4;
             this.InstrumentFortjenesteTxt.Text = "Fortjeneste";
             // 
             // InstrumentAntalTxt
             // 
-            this.InstrumentAntalTxt.Location = new System.Drawing.Point(331, 273);
+            this.InstrumentAntalTxt.Location = new System.Drawing.Point(321, 273);
             this.InstrumentAntalTxt.Name = "InstrumentAntalTxt";
-            this.InstrumentAntalTxt.Size = new System.Drawing.Size(100, 20);
+            this.InstrumentAntalTxt.Size = new System.Drawing.Size(155, 20);
             this.InstrumentAntalTxt.TabIndex = 5;
             this.InstrumentAntalTxt.Text = "Antal";
             // 
             // InstrumentLagerDatoTxt
             // 
-            this.InstrumentLagerDatoTxt.Location = new System.Drawing.Point(331, 233);
+            this.InstrumentLagerDatoTxt.Location = new System.Drawing.Point(321, 233);
             this.InstrumentLagerDatoTxt.Name = "InstrumentLagerDatoTxt";
-            this.InstrumentLagerDatoTxt.Size = new System.Drawing.Size(200, 20);
+            this.InstrumentLagerDatoTxt.Size = new System.Drawing.Size(155, 20);
             this.InstrumentLagerDatoTxt.TabIndex = 6;
             // 
             // ProducentCombo
             // 
             this.ProducentCombo.FormattingEnabled = true;
-            this.ProducentCombo.Location = new System.Drawing.Point(331, 322);
+            this.ProducentCombo.Location = new System.Drawing.Point(321, 322);
             this.ProducentCombo.Name = "ProducentCombo";
-            this.ProducentCombo.Size = new System.Drawing.Size(121, 21);
+            this.ProducentCombo.Size = new System.Drawing.Size(155, 21);
             this.ProducentCombo.TabIndex = 7;
             // 
             // StatusLabel
@@ -117,7 +117,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(270, 19);
+            this.label1.Location = new System.Drawing.Point(290, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(244, 13);
             this.label1.TabIndex = 9;
@@ -125,9 +125,9 @@
             // 
             // TilbageBtn
             // 
-            this.TilbageBtn.Location = new System.Drawing.Point(331, 415);
+            this.TilbageBtn.Location = new System.Drawing.Point(321, 415);
             this.TilbageBtn.Name = "TilbageBtn";
-            this.TilbageBtn.Size = new System.Drawing.Size(167, 23);
+            this.TilbageBtn.Size = new System.Drawing.Size(155, 23);
             this.TilbageBtn.TabIndex = 10;
             this.TilbageBtn.Text = "Tilbage til varegruppe";
             this.TilbageBtn.UseVisualStyleBackColor = true;
